@@ -24,9 +24,9 @@ function setupIntialValues() {
   const values = { amount: 5000, years: 30, rate: 3.5 };
   const userAmount = document.getElementById("loan-amount");
   userAmount.value = values.amount;
-  const userYears = document.querySelector("loan-years");
+  const userYears = document.getElementById("loan-years");
   userYears.value = values.years;
-  const userRate = document.querySelector("loan-rate");
+  const userRate = document.getElementById("loan-rate");
   userRate.value = values.rate;
   update();
 
@@ -36,8 +36,8 @@ function setupIntialValues() {
 // Get the current values from the UI
 // Update the monthly payment
 function update() {
-  const currentValues = getCurrentValues();
-  updateMonthly(CalculateMonthlyPayment(currentValues));
+  const currentValues = getCurrentUIValues();
+  updateMonthly(calculateMonthlyPayment(currentValues));
 }
 
 // Given an object of values (a value has amount, years and rate ),
@@ -52,6 +52,6 @@ function calculateMonthlyPayment(values) {
 // Given a string representing the monthly payment value,
 // update the UI to show the value.
 function updateMonthly(monthly) {
-  const userMonthly = document.querySelector('monthly-payment');
-  userMonthly.innerText = monthly;
+  const userMonthly = document.getElementById('monthly-payment');
+  userMonthly.innerText = `$ ${monthly}`
 }
