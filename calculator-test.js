@@ -15,4 +15,9 @@ it("should return a result with 2 decimal places", () => {
   expect(calculateMonthlyPayment(values)).toEqual(756.93)
 });
 
+afterEach( () => {
+update();
+values = "";
+})
+
 /// etc
